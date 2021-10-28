@@ -1,6 +1,8 @@
-pragma solidity ^0.6.6;
+// SPDX-License-Identifier: UNLICENSED
+pragma solidity ^0.8.4;
 
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v3.3.0/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 contract NFTFarm is ERC721 {
     using SafeMath for uint256;
