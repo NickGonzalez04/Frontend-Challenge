@@ -6,9 +6,7 @@ import {
   } from "react-router-dom";
 
 const Navbar =()=> {
-    const homeLink =()=>(
-        <Link to="/">Home</Link>
-    )
+
     
     return(
 <Menu mt={24} >

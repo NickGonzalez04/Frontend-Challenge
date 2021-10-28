@@ -1,15 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {
-    ChakraProvider,
-    Box,
-    Text,
-    Link,
-    VStack,
-    Code,
-    Grid,
-    theme,
     Button,
-    ButtonGroup
+ 
   } from '@chakra-ui/react';
 import MintFighter from '../components/mintButton'
 

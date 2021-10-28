@@ -2,7 +2,7 @@ import React from 'react';
 import { CONTRACT_ADDRESS, NFTAbi} from "../utils/constants";
 import Web3 from 'web3';
 import {  Button,
-ButtonGroup
+
 } from '@chakra-ui/react';
 
 const web3 = new Web3(window.ethereum);
