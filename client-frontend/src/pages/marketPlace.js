@@ -3,7 +3,7 @@ import { CONTRACT_ADDRESS, NFTAbi} from '../utils/constants';
 import FighterCards from '../components/figtherCard'
 import Web3 from 'web3';
 
-import { Center, Link } from "@chakra-ui/react"
+import { Box, Text } from "@chakra-ui/react"
 
 
 const web3 = new Web3(window.ethereum);
@@ -13,19 +13,10 @@ const MarketPlace = () => {
     const [ mktPlace, setmktPlace ] = useState([]);
 
 
-    const getCountNFTs = async () =>{
-          let total = await web3Contract.methods.totalSupply().call()
-              .then((res)=>{
-                return res;
-            })
-              .catch((err)=>{
-                console.log(err)
-              })
-        return total;
-  };
 
   const marketPlc = async () =>{
-        const nftTotal = await getCountNFTs();
+        let nftTotal = await web3Contract.methods.totalSupply().call();
+        console.log(web3Contract.methods.balanceOf(CONTRACT_ADDRESS))
         console.log(Number(nftTotal))
         const supply = await Promise.all(new Array(parseInt(nftTotal)).fill(null).map((x, i)=>
         web3Contract.methods.tokens(i).call()
@@ -39,9 +30,9 @@ const MarketPlace = () => {
         return supply;
     }
 
-    const getNFTPrice=()=>{
-        
-    }
+ 
+
+
     useEffect(()=>{
       marketPlc();
     },[]);
@@ -50,11 +41,11 @@ const MarketPlace = () => {
 
     return(
         <div>
-
-        <h1>Market Place</h1>
-        <Center ml="24">
-           <FighterCards nftFighter={mktPlace} /> 
-        </Center>
+            <Text fontSize="24" fontWeight="bold">Market Place</Text>
+            <br></br>
+            <Box  display="flex" alignItems="center">
+                <FighterCards nftFighter={mktPlace} /> 
+            </Box>
         </div>)
 };
 
